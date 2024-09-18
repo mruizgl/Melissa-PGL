@@ -5,15 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let celdasReveladas = [];
     let parejasEncontradas = 0;
     let paresNumeros = [];
+    let totalCeldas;
 
     function crearTablero(nivel) {
         const tamanio = 3 + nivel; // Empieza en 3x3 y aumenta
-        const totalCeldas = Math.pow(tamanio, 2); // Total de celdas (9, 16, 25...)
+        totalCeldas = Math.pow(tamanio, 2); // Total de celdas (9, 16, 25...)
         const tablero = document.getElementById('tablero');
         tablero.innerHTML = ''; // Limpiar el tablero anterior
 
         // Generar pares de números
-        paresNumeros = generarPares(totalCeldas / 2); // Crear pares de números (la mitad del total de celdas)
+        paresNumeros = generarPares(totalCeldas); // Crear pares de números
         parejasEncontradas = 0;
         intentos = 0;
         document.getElementById('movimientos').textContent = `Movimientos: ${intentos}`;
@@ -39,14 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function generarPares(totalPares) {
+    function generarPares(totalCeldas) {
         let numeros = [];
-    
+        let totalPares = Math.floor(totalCeldas / 2); // Total de pares (la mitad del total de celdas)
+
         // Generar los pares
         for (let i = 1; i <= totalPares; i++) {
             numeros.push(i, i); // Duplicar cada número para formar pares
         }
-    
+
+        // Si el número total de celdas es impar, agregar un número extra
+        if (totalCeldas % 2 !== 0) {
+            numeros.push(totalPares + 1); // Agregar el número adicional sin pareja
+        }
+
         // Barajar los números
         return numeros.sort(() => Math.random() - 0.5);
     }
@@ -69,15 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (celdasReveladas.length === 1) {
             // Comparar números
-            const primerBoton = document.getElementById(celdasReveladas[0]);
-            if (paresNumeros[celdasReveladas[0]] === paresNumeros[index]) {
+            const primerIndex = celdasReveladas[0];
+            const primerBoton = document.getElementById(primerIndex);
+            if (paresNumeros[primerIndex] === paresNumeros[index]) {
                 // Pareja encontrada
                 boton.classList.add('revealed');
                 primerBoton.classList.add('revealed');
                 parejasEncontradas++;
                 actualizarAciertos();
 
-                if (parejasEncontradas === paresNumeros.length / 2) {
+                // Verificar si se han encontrado todas las parejas
+                if (parejasEncontradas === Math.floor(totalCeldas / 2)) { // Ajuste para todos los tamaños de tablero
                     setTimeout(() => pasarSiguienteNivel(), 1000);
                 }
             } else {
@@ -94,12 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         intentos++;
         document.getElementById('movimientos').textContent = `Movimientos: ${intentos}`;
-
-        // Comprobar si se ha superado el límite de intentos
-        if (intentos >= intentosMaximosPorNivel[nivel]) {
-            alert('Has alcanzado el límite de intentos');
-            reiniciarJuego();
-        }
     }
 
     function mostrarNumero(boton, index) {
@@ -119,16 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function pasarSiguienteNivel() {
         nivel++;
         if (nivel < intentosMaximosPorNivel.length) {
-            crearTablero(nivel);
+            crearTablero(nivel); // Crear un nuevo tablero para el siguiente nivel
         } else {
             alert('¡Felicidades! Has completado todos los niveles');
-            reiniciarJuego();
+            reiniciarJuego(); // Reiniciar el juego si se completan todos los niveles
         }
     }
 
     function reiniciarJuego() {
         nivel = 0;
-        crearTablero(nivel);
+        crearTablero(nivel); // Reiniciar el tablero a 3x3
     }
 
     // Inicializar el juego
