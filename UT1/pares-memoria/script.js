@@ -123,10 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nivel++;
         if (nivel < intentosMaximosPorNivel.length) {
             crearTablero(nivel); // Crear un nuevo tablero para el siguiente nivel
-        } else {
-            alert('¡Felicidades! Has completado todos los niveles');
-            reiniciarJuego(); // Reiniciar el juego si se completan todos los niveles
-        }
+        } 
     }
 
     function reiniciarJuego() {
