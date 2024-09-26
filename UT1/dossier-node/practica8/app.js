@@ -1,7 +1,7 @@
 const http = require('http');
 const url = require('url');
 
-const puerto = 8000;
+const puerto = 8080;
 http.createServer((req, res) => {
     res.write(`servidor funcionando en ${puerto}`);
     const queryObject = url.parse(req.url, true).query;
@@ -12,4 +12,4 @@ http.createServer((req, res) => {
         res.write(`se escribio: ${texto}`);
         res.end();
 
-}).listen(puerto, () => console.log(`Servidor escuchando en el puerto ${puerto}`));
+}).listen(puerto);

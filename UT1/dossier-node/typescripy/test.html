@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Responda si está usted jubilado o no lo está: <br>
+    <input type="radio" name="jubilado" value="sí" />Sí
+    <input type="radio" name="jubilado" value="no" />No
+    <br>
+    <button onclick="obtenerinfo()">Pulsar</button>
+
+
+<script type="text/javascript">
+   
+
+    function obtenerinfo() {
+        let radios = document.querySelectorAll("[name=jubilado]");
+        console.log(radios);
+        for (const radio of radios) {
+            if( radio.checked ){
+                alert(""+radio.value);
+            }
+        }
+
+    }
+</script>
+
+</body>
+</html>
