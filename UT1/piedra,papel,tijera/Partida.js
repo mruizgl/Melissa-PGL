@@ -1,54 +1,72 @@
+const opciones = ['piedra', 'papel', 'tijeras'];
 
 const DOM = {
-    eleccionJugador = document.elementById('eleccionJugador')
-}
-
-const opciones ={'piedra', 'papel', 'tijera'};
+    eleccionJugador: function () {
+        let radios = document.getElementsByName("eleccionJugador");
+        for (const radio of radios) {
+            if (radio.checked) { // 'checked' verifica si el radio button está seleccionado
+                return radio.value.toLowerCase();
+            }
+        }
+        return null; // Si no hay selección
+    }
+};
 
 //elijo aleatoriamente la eleccion de la maquina
 function opcionAleatoria() {
-    return opciones[rnd(0, 2)];
+    const posicionAleatoria =  Math.floor(Math.random() * opciones.length);  
+    return opciones[posicionAleatoria];
 }
 
 //determina quien gana y quien pierde
-function logicaPartida() {
+function logicaPartida(eleccionJugador) {
     let eleccionMaquina = opcionAleatoria(); 
-    switch (eleccionMaquina) {
-        
+
+    switch (eleccionJugador) {
+        case eleccionMaquina:
+        return `Es un empate. Ambos eligieron ${eleccionJugador}`;
+
         case 'piedra':
-            if (DOM.eleccionJugador === 'Tijeras') {
-                return `<div>Ha perdido vuelva a intentarlo</div>`.innerHTML;
-            }else if(DOM.eleccionJugador === 'Papel'){
-                return `<div>Ha ganado, felicidades</div>`.innerHTML;
+            switch (eleccionMaquina) {
+                case 'tijeras':
+                    return `¡Has ganado! La máquina eligió ${eleccionMaquina}`;
+                case 'papel':
+                    return `Has perdido. La máquina eligió ${eleccionMaquina}`;
             }
             break;
-        case 'tijera':
-            if (DOM.eleccionJugador === 'Piedra') {
-                return `<div>Ha ganado, felicidades</div>`.innerHTML;
-            }else if(DOM.eleccionJugador === 'Papel') {
-                return `<div>Ha perdido vuelva a intentarlo</div>`.innerHTML;
+
+        case 'tijeras':
+            switch (eleccionMaquina) {
+                case 'papel':
+                    return `¡Has ganado! La máquina eligió ${eleccionMaquina}`;
+                case 'piedra':
+                    return `Has perdido. La máquina eligió ${eleccionMaquina}`;
             }
             break;
+
         case 'papel':
-            if (DOM.eleccionJugador == 'Tijeras') {
-                return `<div>Ha ganado, felicidades</div>`.innerHTML;
-            }else if (DOM.eleccionJugador == 'Piedra'){
-                return `<div>Ha perdido vuelva a intentarlo</div>`.innerHTML;
+            switch (eleccionMaquina) {
+                case 'piedra':
+                    return `¡Has ganado! La máquina eligió ${eleccionMaquina}`;
+                case 'tijeras':
+                    return `Has perdido. La máquina eligió ${eleccionMaquina}`;
             }
             break;
+
         default:
-            return `<div>Es empate vuelva a intentarlo</div>`.innerHTML;
-            break;
+            return 'Elección inválida.';
     }
 }
 
-function obtenerinfo() {
-    let radios = document.querySelectorAll("[name=eleccionJugador]");
-    console.log(radios);
-    for (const radio of radios) {
-        if( radio.checked ){
-            alert(""+radio.value);
-        }
-    }
 
+
+// Función para mostrar el resultado en el HTML
+function mostrarResultado() {
+    const eleccionJugador = DOM.eleccionJugador();
+    if (eleccionJugador) {
+        const resultado = logicaPartida(eleccionJugador);
+        document.getElementById('resultado').innerHTML = resultado;
+    } else {
+        alert("Por favor, selecciona una opción antes de pulsar el botón.");
+    }
 }

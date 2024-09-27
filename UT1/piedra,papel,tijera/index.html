@@ -8,12 +8,17 @@
     <title>Piedra, papel, tijeras</title>
 </head>
 <body>
-    ¿Piedra papel o tijera? <br>
-    <input type="radio" name="eleccionJugador" value="Piedra" />Piedra
-    <input type="radio" name="eleccionJugador" value="Papel" />Papel
-    <input type="radio" name="eleccionJugador" value="Tijeras" />Tijeras
-    <br>
-    <button onclick="obtenerinfo()">Pulsar</button>
+    <p>¿Piedra, papel o tijera?</p>
+    <div id="elecciones">
+        <label><input type="radio" name="eleccionJugador" value="papel"> Papel</label>
+        <label><input type="radio" name="eleccionJugador" value="tijeras"> Tijeras</label>
+        <label><input type="radio" name="eleccionJugador" value="piedra"> Piedra</label>
+    </div>
+    
+    <button onclick="mostrarResultado()">Pulsar</button>
+    
+    <div id="resultado">Resultado: </div>
+
     <script src="Partida.js"></script> 
 </body>
 </html>
