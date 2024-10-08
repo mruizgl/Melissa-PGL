@@ -10,9 +10,10 @@ const Practica12 = (props: Props) => {
   }
   return (
     <>
-    <h3>Elige color:{color}</h3>
-    <p>Verde: <button onClick={()=>elegirColor("verde")}>has elegido verde </button></p>
-    <p>Rojo: <button onClick={()=>elegirColor("rojo")}>has elegido rojo</button></p>
+    <h3>Elige color:</h3>
+    <p>Has elegido {color}</p>
+    <button onClick={()=>elegirColor("verde")}>Verde </button>
+    <button onClick={()=>elegirColor("rojo")}>Rojo</button>
     </> 
     )
 }
