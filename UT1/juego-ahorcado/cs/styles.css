@@ -1,0 +1,59 @@
+/* Estilos básicos para el juego del ahorcado */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    flex-direction: column;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+canvas {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+div {
+    text-align: center;
+}
+
+#palabraAdivinar {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+#errores {
+    color: red;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 1rem;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
