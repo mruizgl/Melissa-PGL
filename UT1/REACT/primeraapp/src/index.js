@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Practica12 from './Practica12.tsx';
+import Practica21 from './Practica21.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
-    <Practica12 />
+    <Practica21 />
   
 );
 
