@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
+/**
+ * Implementaremos el juego de acertar número secreto. Pero en esta ocasión,
+ * habrá un input y un botón. Al pulsar el botón el programa evalúa la apuesta del input. NO se
+ * usarán referencias. Se hará el uso de manejo de eventos para acceso al DOM
+ * @returns 
+ */
 const Practica30: React.FC = () => {
-    const [numeroSecreto] = useState<number>(Math.floor(Math.random() * 100) + 1); // Número secreto aleatorio entre 1 y 100
-    const [mensaje, setMensaje] = useState<string>(''); // Mensaje para el usuario
+    const [numeroSecreto] = useState<number>(Math.floor(Math.random() * 100) + 1); 
+    const [mensaje, setMensaje] = useState<string>(''); 
   
-    // Manejador de clic para evaluar la apuesta
     const evaluarApuesta = (event: React.MouseEvent<HTMLButtonElement>) => {
-      const input = event.currentTarget.previousElementSibling as HTMLInputElement; // Accede al input anterior
-      const apuesta = parseInt(input.value, 10); // Convierte el valor del input a un número
+      const input = event.currentTarget.previousElementSibling as HTMLInputElement; 
+      const apuesta = parseInt(input.value, 10); 
   
       if (apuesta === numeroSecreto) {
         setMensaje('¡Correcto! Has adivinado el número secreto.');
@@ -19,7 +24,7 @@ const Practica30: React.FC = () => {
         setMensaje('Por favor, ingresa un número válido.');
       }
   
-      input.value = ''; // Limpia el input después de evaluar
+      input.value = '';
     };
   
     return (

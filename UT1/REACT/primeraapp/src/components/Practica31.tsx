@@ -9,22 +9,20 @@ const Practica31 = (props: Props) => {
     const [contador, setContador] = useState<number>(0);
   
     useEffect(() => {
-      // Generar 8 números aleatorios del 1 al 8
-      const numerosAleatorios = Array.from({ length: 8 }, (_, i) => i + 1);
+      const numerosAleatorios = [1, 2, 3, 4, 5, 6, 7, 8];
       setNumeros(numerosAleatorios.sort(() => Math.random() - 0.5));
   
-      // Ocultar los números después de 3 segundos
       const timer = setTimeout(() => {
         setMostrarNumeros(false);
       }, 3000);
   
-      return () => clearTimeout(timer); // Limpiar el timer al desmontar
+      return () => clearTimeout(timer); 
     }, []);
   
     const manejarClick = (numero: number) => {
       if (numero === intentoActual) {
-        setContador(contador + 1); // Incrementar contador
-        setIntentoActual(intentoActual + 1); // Pasar al siguiente número
+        setContador(contador + 1); 
+        setIntentoActual(intentoActual + 1); 
       }
     };
   
@@ -52,7 +50,7 @@ const Practica31 = (props: Props) => {
                   backgroundColor: intentoActual > numero ? '#cfe2ff' : '#fff',
                   border: '1px solid #000',
                 }}
-                disabled={intentoActual > numero} // Desactivar botón si el número ya fue adivinado
+                disabled={intentoActual > numero} 
               >
                 {intentoActual > numero ? numero : '?'}
               </button>

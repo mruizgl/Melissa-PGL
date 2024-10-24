@@ -2,26 +2,34 @@ import React, { useState } from 'react'
 
 type Props = {}
 
+/**
+ * Realizar un componente llamado:
+ * OperarBotones que al pulsar el botón de la izquierda
+ * divida al valor actual entre 2 y si se pulsa el de la derecha
+ * multiplique. Se debe hacer mediante un único método que responda a onClick ( el mismo
+ * método para los dos botones )
+ * @param props 
+ * @returns 
+ */
 const Practica29 = (props: Props) => {
-    const [valor, setValor] = useState<number>(1); // Valor inicial
+    const [valor, setValor] = useState<number>(1); 
 
-    // Manejador de clics
-    const manejarOperacion = (operacion: string) => {
+    const OperarBotones = (operacion: string) => {
       setValor((prevValor) => {
         if (operacion === 'dividir') {
-          return prevValor / 2; // Divide el valor actual entre 2
+          return prevValor / 2; 
         } else if (operacion === 'multiplicar') {
-          return prevValor * 2; // Multiplica el valor actual por 2
+          return prevValor * 2; 
         }
-        return prevValor; // Devuelve el valor anterior si no coincide con ninguna operación
+        return prevValor; 
       });
     };
   
     return (
       <div>
         <h5>Valor Actual: {valor}</h5>
-        <button onClick={() => manejarOperacion('dividir')}>Dividir entre 2</button>
-        <button onClick={() => manejarOperacion('multiplicar')}>Multiplicar por 2</button>
+        <button onClick={() => OperarBotones('dividir')}>{valor} / 2</button>
+        <button onClick={() => OperarBotones('multiplicar')}>{valor} * 2</button>
       </div>
     );
 }
