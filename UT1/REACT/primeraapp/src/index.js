@@ -8,11 +8,12 @@ import Practica21 from './Practica21.tsx';
 import Practica31 from './components/Practica31.tsx';
 import Practica30 from './components/Practica31.tsx';
 import Practica29 from './Practica29.tsx';
+import Practica32 from './Practica32.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
-    <Practica31 />
+    <Practica32 />
   
 );
 
