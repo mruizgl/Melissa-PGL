@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 type Props = {}
 
 const Practica32 = (props: Props) => {
+  /**
+   
+   
+
   type Producto = {
     nombre: string,
     precio: number,
@@ -25,6 +29,7 @@ const Practica32 = (props: Props) => {
         };
         setlistaproductos([...listaproductos, producto]);
     }
+    
 
     return (
         <div>
@@ -44,8 +49,11 @@ const Practica32 = (props: Props) => {
 
 
         </div>
+        
     )
+    
   }
+  */
 }
 
 export default Practica32
