@@ -4,13 +4,13 @@
         "id": 1,
         "nombre": "Madrid",
         "poblacion": 3200000,
-        "imagen": "./madrid.jpg"
+        "imagen": "madrid.jpg"
       },
       {
         "id": 2,
         "nombre": "Barcelona",
         "poblacion": 1600000,
-        "imagen": "./barcelona.jpeg"
+        "imagen": "barcelona.jpeg"
       }
     ]
   }

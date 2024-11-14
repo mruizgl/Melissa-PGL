@@ -6,11 +6,11 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<App />);
+
 root.render(
-    <React.StrictMode>
-        <Practica13 />
-        <PokemonListCard /> 
+   
+       
+        < Practica28/> 
         
-    </React.StrictMode>
+   
 );
