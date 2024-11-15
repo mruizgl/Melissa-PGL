@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
 interface Props {
-  zona: string;
+  zona?: string;
 }
 
-export const Reloj = ({ zona }: Props): React.ReactElement => {
-  const zonaString = zona ?? "Europe/Madrid"; 
-  const [fecha, setFecha] = useState<string>(new Date().toLocaleString("es-ES", { timeZone: zonaString }));
+export const Reloj = (props: Props) => {
+  const [fecha, setFecha] = useState<string>("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFecha(new Date().toLocaleString("es-ES", { timeZone: zonaString }));
-    }, 1000);
+    const timerID = setInterval(tick, 1000);
+    return () => clearInterval(timerID); 
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [zonaString]);
+  const tick = () => {
+    const zona = props.zona || "Europe/Madrid";
+    const nuevaFecha = new Date().toLocaleString("es-ES", { timeZone: zona });
+    setFecha(nuevaFecha);
+  };
 
   return (
     <div>
-      <h2>Hora en {zonaString}:</h2>
+      <h2>Hora en {props.zona || "Europe/Madrid"}:</h2>
       <p>{fecha}</p>
     </div>
   );
 };
+
 
