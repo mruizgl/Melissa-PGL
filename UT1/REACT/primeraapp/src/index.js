@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Practica13 from './dossier/Practica13';
+import Practica15 from './dossier/practica15/Practica15';
 import PokemonListCard from './dossier/practica43/PokemonListCard'; 
-import App from './App';
+import Practica19 from './dossier/practica19/Practica19';
+import RelojesMundiales from './dossier/practica6/RelojesMundiales'
+import Practica21 from './dossier/Practica21'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-root.render(
-   
-       
-        < Practica28/> 
-        
-   
+root.render(      
+        < Practica21/>         
+
 );
