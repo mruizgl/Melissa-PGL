@@ -26,7 +26,17 @@ const Home: React.FC = () => {
       <h1>Películas</h1>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.titulo}</li>
+          <li key={movie.id} style={{ marginBottom: '20px', listStyle: 'none' }}>
+            <h2>{movie.titulo}</h2>
+            <img
+            src={`http://localhost:3001/${movie.imagen}`}
+            alt={movie.titulo}
+            style={{ width: '200px', borderRadius: '8px' }}
+            />
+            <p><strong>Dirección:</strong> {movie.direccion}</p>
+            <p><strong>Actores:</strong> {movie.actores}</p>
+            <p><strong>Argumento:</strong> {movie.argumento}</p>
+          </li>
         ))}
       </ul>
     </div>
