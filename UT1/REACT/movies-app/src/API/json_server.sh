@@ -2,4 +2,4 @@
 
 
 #Lanzamos el comando estableciendo la ruta del json y de la carpeta para ficheros estáticos ( img, css, js,...)
-json-server --watch fakeserver/peliculas.json --static img
+npx json-server --watch peliculas.json --port 3001 --static ./img
