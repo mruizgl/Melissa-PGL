@@ -5,6 +5,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Favorites from './components/Favorites';
+import CrearPelicula from 'pages/CrearPelicula';
+import EditarBorrarMostrarPelicula from 'pages/EditarBorrarMostrarPelicula';
 
 const App: React.FC = () => {
   return (
@@ -13,9 +15,13 @@ const App: React.FC = () => {
         <Router>
           <Navbar />
           <Favorites />
-          <Routes>
-            <Route path="/" element={<Home />} />
+    
+          <Routes>        
+            <Route path="/" element={<Home />} />          
+            <Route path="/crearpelicula" element={<CrearPelicula />} />
+            <Route path="/pelicula/:id" element={<EditarBorrarMostrarPelicula />} />
           </Routes>
+   
         </Router>
       </ThemeProvider>
     </MoviesProvider>
