@@ -1,30 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar'; 
 import Home from './Components/Home'; 
-import ThemeToggle from './Components/ThemeToggle'; // Componente para cambiar el tema
+import { ThemeProvider, useTheme } from './Components/ThemeContext'; 
 
 function App() {
-  const [isNightMode, setIsNightMode] = useState(false); // Sin el tipo boolean
+  return (
+    <ThemeProvider>
+      <Main />
+    </ThemeProvider>
+  );
+}
 
-  // Cargar el tema desde localStorage al iniciar la app
+const Main = () => {
+  const { theme, toggleTheme } = useTheme();
+
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'night') {
-      setIsNightMode(true);
-      document.body.classList.add('night');
-      document.body.classList.remove('day');
-    } else {
-      setIsNightMode(false);
-      document.body.classList.add('day');
-      document.body.classList.remove('night');
-    }
-  }, []);
 
-  // Cambiar el tema
-  const toggleTheme = () => {
-    setIsNightMode(!isNightMode);
-    if (!isNightMode) {
+    if (theme === 'night') {
       document.body.classList.add('night');
       document.body.classList.remove('day');
       localStorage.setItem('theme', 'night');
@@ -33,16 +26,16 @@ function App() {
       document.body.classList.remove('night');
       localStorage.setItem('theme', 'day');
     }
-  };
+  }, [theme]); 
 
   return (
     <div>
-      <Navbar /> 
-      <Routes> 
-        <Route path="/" element={<Home />} />  
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

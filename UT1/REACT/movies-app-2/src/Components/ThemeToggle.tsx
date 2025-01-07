@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';  // Importar íconos de sol y luna
+import { FaSun, FaMoon } from 'react-icons/fa';  
 
 const ThemeToggle: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -39,7 +39,7 @@ const ThemeToggle: React.FC = () => {
       onClick={toggleTheme}
       aria-label="Toggle theme"
     >
-      {isDarkMode ? <FaMoon /> : <FaSun />} {/* Mostrar sol o luna */}
+      {isDarkMode ? <FaMoon /> : <FaSun />} 
     </button>
   );
 };
