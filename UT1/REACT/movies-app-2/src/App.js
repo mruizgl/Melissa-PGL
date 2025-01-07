@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar'; 
 import Home from './Components/Home'; 
 import { ThemeProvider, useTheme } from './Components/ThemeContext'; 
+import FindMovie from './Components/FindMovie';
+import CreateMovie from './Components/CreateMovie';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ const Main = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<FindMovie />} />
+        <Route path="/create" element={<CreateMovie />} />
       </Routes>
     </div>
   );
