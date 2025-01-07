@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Css/Home.css';
+import { Link } from 'react-router-dom';
 
 type Props = {};
 
@@ -37,19 +38,19 @@ const Home = (props: Props) => {
       <h1>Películas</h1>
       <div className="movies-grid">
         {movies.map((movie) => (
-          <div key={movie.id} className="movie-card">
-            <img
-              src={url + movie.imagen}
-              alt={movie.titulo}
-            />
-            <div className="movie-info">
-              <h2>{movie.titulo}</h2>
-              <p><strong>Dirección:</strong> {movie.direccion}</p>
-              <p><strong>Actores:</strong> {movie.actores}</p>
-              <p><strong>Argumento:</strong> {movie.argumento}</p>
-              
-            </div>
+          <Link
+          to={`/movie/${movie.id}`}
+          key={movie.id}
+          className="movie-card" 
+        >
+          <img src={url + movie.imagen} alt={movie.titulo} />
+          <div className="movie-info">
+            <h2>{movie.titulo}</h2>
+            <p><strong>Dirección:</strong> {movie.direccion}</p>
+            <p><strong>Actores:</strong> {movie.actores}</p>
+            <p><strong>Argumento:</strong> {movie.argumento}</p>
           </div>
+        </Link>
         ))}
       </div>
     </div>
