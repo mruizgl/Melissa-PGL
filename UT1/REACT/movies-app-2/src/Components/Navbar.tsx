@@ -11,6 +11,7 @@ const Navbar = () => {
         <li className="navbar-item"><Link to="/">Inicio</Link></li>
         <li className="navbar-item"><Link to="/search">Buscar película</Link></li>
         <li className="navbar-item"><Link to="/create">Crear película</Link></li>
+        <li className="navbar-item"><Link to="/favorites">Ver favoritos</Link></li>
         <div className="navbar-right">
           <ThemeToggle /> 
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useFavorites } from '../Components/FavoritesContext';
 
 type MovieType = {
   id: number;
@@ -16,9 +17,11 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieType | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<MovieType | null>(null);
-
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
+    const isFavorite = movie ? favorites.some((fav) => fav.id === movie.id) : false;
   useEffect(() => {
     const fetchMovie = async () => {
+
       try {
         const response = await fetch(`http://localhost:3001/peliculas/${id}`);
         const data = await response.json();
@@ -28,6 +31,9 @@ const MovieDetails = () => {
         console.error('Error fetching movie:', error);
       }
     };
+
+    
+
 
     if (id) {
       fetchMovie();
@@ -59,6 +65,18 @@ const MovieDetails = () => {
       } catch (error) {
         console.error('Error saving movie:', error);
       }
+    }
+  };
+
+  const handleAddFavorite = () => {
+    if (movie) {
+      addFavorite(movie); 
+    }
+  };
+
+  const handleRemoveFavorite = () => {
+    if (movie) {
+      removeFavorite(movie.id); 
     }
   };
 
@@ -136,6 +154,13 @@ const MovieDetails = () => {
           {isEditing ? 'Cancelar' : 'Editar'}
         </button>
         <button onClick={handleDelete}>Eliminar</button>
+      </div>
+      <div>
+        {isFavorite ? (
+            <button onClick={handleRemoveFavorite}>Eliminar de favoritos</button>
+        ) : (
+            <button onClick={handleAddFavorite}>Añadir a favoritos</button>
+        )}
       </div>
     </div>
   );
