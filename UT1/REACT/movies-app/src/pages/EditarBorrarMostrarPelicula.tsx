@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useMovies } from '../context/MovieContext';
-import { Movie } from '../models/Movie';
+import { Movie } from '../Models/Movie';
 
 const EditarBorrarMostrarPelicula: React.FC = () => {
   const { id } = useParams<{ id: string }>();

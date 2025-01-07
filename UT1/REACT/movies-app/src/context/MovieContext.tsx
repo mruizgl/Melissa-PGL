@@ -1,6 +1,6 @@
 
 import React, { createContext, useState, ReactNode, useContext, useEffect } from 'react';
-import { Movie } from '../models/Movie';
+import { Movie } from '../Models/Movie';
 
 interface MoviesContextProps {
   movies: Movie[];

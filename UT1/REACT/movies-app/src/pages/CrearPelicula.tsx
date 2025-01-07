@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMovies } from '../context/MovieContext';
 import { useNavigate } from 'react-router-dom';
-import { Movie } from '../models/Movie';
+import { Movie } from '../Models/Movie';
 
 const CrearPelicula: React.FC = () => {
   const { addMovie } = useMovies();

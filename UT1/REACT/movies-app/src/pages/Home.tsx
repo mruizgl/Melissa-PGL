@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MoviesContext } from '../context/MovieContext';
-import { Movie } from '../models/Movie';
+import { Movie } from '../Models/Movie';
 
 const Home: React.FC = () => {
   const moviesCtx = useContext(MoviesContext);

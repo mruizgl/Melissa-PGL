@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MoviesProvider } from './context/MovieContext';
 import { ThemeProvider } from './context/ThemeContext';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import Home from './pages/Home';
-import Favorites from './components/Favorites';
+import Favorites from './Components/Favorites';
 import CrearPelicula from 'pages/CrearPelicula';
 import EditarBorrarMostrarPelicula from 'pages/EditarBorrarMostrarPelicula';
 
