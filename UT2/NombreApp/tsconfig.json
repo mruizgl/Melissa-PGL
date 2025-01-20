@@ -3,10 +3,13 @@
     "target": "esnext",
     "lib": ["es6", "dom"],
     "moduleResolution": "node",
-    "jsx": "react-native",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "strict": false,
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "jsx": "react-native",
+    "esModuleInterop": true,   
     "typeRoots": [
       "./node_modules/@types"
     ],
