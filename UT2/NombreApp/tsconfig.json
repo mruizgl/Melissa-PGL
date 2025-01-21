@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "target": "esnext",
     "lib": ["es6", "dom"],
     "moduleResolution": "node",
     "strict": false,
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
     "jsx": "react-native",
-    "esModuleInterop": true,   
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "typeRoots": [
       "./node_modules/@types"
     ],
@@ -21,5 +19,8 @@
   "include": [
     "src/**/*",
     "node_modules/react-native/types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
