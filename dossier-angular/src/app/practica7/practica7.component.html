@@ -1,0 +1,9 @@
+<form [formGroup]="gatoFormData" (submit)="guardarGato()">
+    <input type="text" id="nombre" formControlName="nombre" placeholder="nombre" /><br>
+    <input type="text" id="peso" formControlName="peso" placeholder="peso" /><br>
+    <input type="edad" id="edad" formControlName="edad" name="edad" value="true">
+    <br>
+    
+    <br>
+    <button type="submit">Guardar</button>
+</form>
