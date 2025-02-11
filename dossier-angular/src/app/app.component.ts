@@ -4,10 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { GenteComponent } from './gente/gente.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Practica7Component } from "./practica7/practica7.component";
-import { IMCCalculatorComponent } from "./imc-calculator/imc-calculator.component";
+import { ImcCalculatorComponent } from "./imc-calculator/imc-calculator.component";
 import { PersonListComponent } from "./person-list/person-list.component";
 import { FormsModule } from '@angular/forms';
 import { IMCService } from './person.service';
+
+
 
 
 @Component({
@@ -17,10 +19,8 @@ import { IMCService } from './person.service';
     CommonModule,
     RouterOutlet,
     FormsModule, 
-    GenteComponent,
     ReactiveFormsModule,
-    Practica7Component,
-    IMCCalculatorComponent,
+    ImcCalculatorComponent,
     PersonListComponent
   ],
   templateUrl: './app.component.html',

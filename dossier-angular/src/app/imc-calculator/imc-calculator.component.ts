@@ -1,32 +1,33 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { IMCService } from '../person.service';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { IMCService } from '../person.service';  
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-imc-calculator',
+  templateUrl: './imc-calculator.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Importa FormsModule aquí
-  templateUrl: './imc-calculator.component.html'
+  imports: [FormsModule], 
 })
-export class IMCCalculatorComponent {
-  name = '';
-  weight: number = 0;
-  height: number = 0;
+export class ImcCalculatorComponent {
+  @Input() name: string = '';
+  @Input() weight: number | null = null;
+  @Input() height: number | null = null;
 
-  constructor(private imcService: IMCService) {}
+  constructor(private imcService: IMCService) {}  
 
   calculateIMC() {
-    if (this.weight > 0 && this.height > 0) {
+    if (this.weight && this.height && this.name) {
       const imc = this.weight / (this.height * this.height);
-      this.imcService.addPerson({ name: this.name, weight: this.weight, height: this.height, imc });
-      this.clearForm();
-    }
-  }
+      const person = { name: this.name, weight: this.weight, height: this.height, imc };
+      
+      this.imcService.addPerson(person);  
 
-  clearForm() {
-    this.name = '';
-    this.weight = 0;
-    this.height = 0;
+
+      this.name = '';
+      this.weight = null;
+      this.height = null;
+    } else {
+      alert('Por favor ingresa todos los datos.');
+    }
   }
 }
