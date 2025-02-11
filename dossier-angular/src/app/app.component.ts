@@ -8,6 +8,7 @@ import { ImcCalculatorComponent } from "./imc-calculator/imc-calculator.componen
 import { PersonListComponent } from "./person-list/person-list.component";
 import { FormsModule } from '@angular/forms';
 import { IMCService } from './person.service';
+import { VisorComponentComponent } from "./visor-component/visor-component.component";
 
 
 
@@ -18,11 +19,12 @@ import { IMCService } from './person.service';
   imports: [
     CommonModule,
     RouterOutlet,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     ImcCalculatorComponent,
-    PersonListComponent
-  ],
+    PersonListComponent,
+    VisorComponentComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
