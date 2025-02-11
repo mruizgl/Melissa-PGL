@@ -4,6 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { GenteComponent } from './gente/gente.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Practica7Component } from "./practica7/practica7.component";
+import { IMCCalculatorComponent } from "./imc-calculator/imc-calculator.component";
+import { PersonListComponent } from "./person-list/person-list.component";
+import { FormsModule } from '@angular/forms';
+import { IMCService } from './person.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,10 +16,13 @@ import { Practica7Component } from "./practica7/practica7.component";
   imports: [
     CommonModule,
     RouterOutlet,
+    FormsModule, 
     GenteComponent,
     ReactiveFormsModule,
-    Practica7Component
-],
+    Practica7Component,
+    IMCCalculatorComponent,
+    PersonListComponent
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
